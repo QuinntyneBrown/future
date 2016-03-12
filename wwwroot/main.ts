@@ -1,7 +1,11 @@
 ﻿require("./core/core.module");
+
 require("./app/app.module");
+require("./button/button.module");
+
 require("./header/header.module");
 require("./tabs/tabs.module");
+require("./login/login.module");
 require("./modal/modal.module");
 
 require("./home-page/home-page.module");
@@ -9,9 +13,12 @@ require("./admin-page/admin-page.module");
 
 var app: any = angular.module("future", [
     "app.core",
+
     "app.app",
+    "app.button"
     "app.header",
     "app.tabs",
+    "app.login",
     "app.modal",
 
     "app.adminPage",
@@ -32,6 +39,7 @@ app.config(["initialStateProvider", "localStorageManagerProvider", (initialState
 app.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => {
     $routeProvider
         .when("/", { template: "<home-page></home-page>" })
-        .when("/admin", { template: "<admin-page></admin-page>" });
+        .when("/admin", { template: "<admin-page></admin-page>" })
+        .when("/login", { template: "<login></login>" });
 }]);
 
