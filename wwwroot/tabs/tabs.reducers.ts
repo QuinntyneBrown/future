@@ -1,22 +1,17 @@
-import * as actions from "./tabs.actions";
+import { SetCurrentTabAction, TabChildLoadedAction } from "./tabs.actions";
 import { addOrUpdate, pluckOut } from "../core";
 
-export const removeTabsReducer = (state, action) => {
-    if (action instanceof actions.RemoveTabsAction)
-        pluckOut({ items: state.tabss, value: action.entity.id });
-    return state;
-}
-
-export const addTabsReducer = (state, action) => {
-    if (action instanceof actions.AddOrUpdateTabsAction) {
-        addOrUpdate({ items: state.tabss, item: action.entity });
+export const setCurrentTabReducer = (state, action) => {
+    if (action instanceof SetCurrentTabAction) {        
+        state.tabIndex[action.tabName] = action.index;
+        state.lastTriggeredByAction = SetCurrentTabAction;
     }
     return state;
 }
 
-export const allTabssReducer = (state, action) => {
-    if (action instanceof actions.AllTabssAction) {
-        state.tabss = action.entities;
+export const tabChildLoadedReducer = (state, action) => {
+    if (action instanceof TabChildLoadedAction) {
+        state.lastTriggeredByAction = TabChildLoadedAction;
     }
     return state;
 }

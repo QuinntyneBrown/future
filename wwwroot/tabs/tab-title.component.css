@@ -1,11 +1,4 @@
-.app {
-    
-}
-
-
-
-
-.tab-title {
+﻿.tab-title {
     display:inline-block;
     font-weight:100;
     width:200px;
@@ -18,11 +11,3 @@
 .tab-title.tabs-titleselected {
     font-weight:800;
 }
-.tabs-contentInActive {
-    display:none;
-}
-
-
-
-
-

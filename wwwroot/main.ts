@@ -1,6 +1,7 @@
 ﻿require("./core/core.module");
 require("./app/app.module");
 require("./header/header.module");
+require("./tabs/tabs.module");
 
 require("./home-page/home-page.module");
 require("./admin-page/admin-page.module");
@@ -9,6 +10,7 @@ var app: any = angular.module("future", [
     "app.core",
     "app.app",
     "app.header",
+    "app.tabs",
 
     "app.adminPage",
     "app.homePage"
