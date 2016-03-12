@@ -5,7 +5,7 @@ import { TabTitleComponent } from "./tab-title.component";
 import { TabsComponent } from "./tabs.component";
 import { TabsActionCreator } from "./tabs.actions";
 import { TabsService } from "./tabs.service";
-import *  as reducers from "./tabs.reducers";
+import * as reducers from "./tabs.reducers";
 
 var app = (<any>angular.module("app.tabs", [
     "app.core"

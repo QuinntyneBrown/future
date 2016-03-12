@@ -206,6 +206,9 @@
     <Content Include="wwwroot\header\header.component.html" />
     <Content Include="wwwroot\home-page\home-page.component.css" />
     <Content Include="wwwroot\home-page\home-page.component.html" />
+    <Content Include="wwwroot\tabs\tab-content.component.html" />
+    <Content Include="wwwroot\tabs\tab-title.component.html" />
+    <Content Include="wwwroot\tabs\tab-title.component.css" />
     <Content Include="wwwroot\tabs\tabs.component.css" />
     <Content Include="wwwroot\tabs\tabs.component.html" />
     <Content Include="wwwroot\website\website-editor.component.css" />
@@ -399,6 +402,10 @@
     <TypeScriptCompile Include="wwwroot\app\app.module.ts" />
     <TypeScriptCompile Include="wwwroot\app\app.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\app\app.service.ts" />
+    <TypeScriptCompile Include="wwwroot\backdrop\backdrop.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\backdrop\backdrop.module.ts" />
+    <TypeScriptCompile Include="wwwroot\backdrop\backdrop.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\backdrop\backdrop.service.ts" />
     <TypeScriptCompile Include="wwwroot\core\action-creator.ts" />
     <TypeScriptCompile Include="wwwroot\core\add-or-update.ts" />
     <TypeScriptCompile Include="wwwroot\core\api-endpoint-provider.ts" />
@@ -434,6 +441,12 @@
     <TypeScriptCompile Include="wwwroot\home-page\home-page.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\home-page\home-page.service.ts" />
     <TypeScriptCompile Include="wwwroot\main.ts" />
+    <TypeScriptCompile Include="wwwroot\modal\modal.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\modal\modal.module.ts" />
+    <TypeScriptCompile Include="wwwroot\modal\modal.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\modal\modal.service.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tab-content.component.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tab-title.component.ts" />
     <TypeScriptCompile Include="wwwroot\tabs\tabs.actions.ts" />
     <TypeScriptCompile Include="wwwroot\tabs\tabs.component.ts" />
     <TypeScriptCompile Include="wwwroot\tabs\tabs.module.ts" />

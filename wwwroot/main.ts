@@ -2,6 +2,7 @@
 require("./app/app.module");
 require("./header/header.module");
 require("./tabs/tabs.module");
+require("./modal/modal.module");
 
 require("./home-page/home-page.module");
 require("./admin-page/admin-page.module");
@@ -11,6 +12,7 @@ var app: any = angular.module("future", [
     "app.app",
     "app.header",
     "app.tabs",
+    "app.modal",
 
     "app.adminPage",
     "app.homePage"
