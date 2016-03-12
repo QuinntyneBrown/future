@@ -210,6 +210,8 @@
     <Content Include="wwwroot\home-page\home-page.component.html" />
     <Content Include="wwwroot\login\login.component.css" />
     <Content Include="wwwroot\login\login.component.html" />
+    <Content Include="wwwroot\registration\registration.component.css" />
+    <Content Include="wwwroot\registration\registration.component.html" />
     <Content Include="wwwroot\tabs\tab-content.component.html" />
     <Content Include="wwwroot\tabs\tab-title.component.html" />
     <Content Include="wwwroot\tabs\tab-title.component.css" />
@@ -459,6 +461,11 @@
     <TypeScriptCompile Include="wwwroot\modal\modal.module.ts" />
     <TypeScriptCompile Include="wwwroot\modal\modal.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\modal\modal.service.ts" />
+    <TypeScriptCompile Include="wwwroot\registration\registration.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\registration\registration.component.ts" />
+    <TypeScriptCompile Include="wwwroot\registration\registration.module.ts" />
+    <TypeScriptCompile Include="wwwroot\registration\registration.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\registration\registration.service.ts" />
     <TypeScriptCompile Include="wwwroot\tabs\tab-content.component.ts" />
     <TypeScriptCompile Include="wwwroot\tabs\tab-title.component.ts" />
     <TypeScriptCompile Include="wwwroot\tabs\tabs.actions.ts" />
