@@ -185,7 +185,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="dist\future.css" />
     <Content Include="dist\future.js" />
+    <Content Include="dist\future.templates.js" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="lib\angular-route.js" />
@@ -194,6 +196,24 @@
     <Content Include="lib\rx.all.compat.min.js" />
     <Content Include="packages.config" />
     <Content Include="tsconfig.json" />
+    <Content Include="wwwroot\admin-page\admin-page.component.css" />
+    <Content Include="wwwroot\admin-page\admin-page.component.html" />
+    <Content Include="wwwroot\app\app.component.css" />
+    <Content Include="wwwroot\app\app.component.html" />
+    <Content Include="wwwroot\footer\footer.component.css" />
+    <Content Include="wwwroot\footer\footer.component.html" />
+    <Content Include="wwwroot\header\header.component.css" />
+    <Content Include="wwwroot\header\header.component.html" />
+    <Content Include="wwwroot\home-page\home-page.component.css" />
+    <Content Include="wwwroot\home-page\home-page.component.html" />
+    <Content Include="wwwroot\tabs\tabs.component.css" />
+    <Content Include="wwwroot\tabs\tabs.component.html" />
+    <Content Include="wwwroot\website\website-editor.component.css" />
+    <Content Include="wwwroot\website\website-editor.component.html" />
+    <Content Include="wwwroot\website\website-list.component.css" />
+    <Content Include="wwwroot\website\website-list.component.html" />
+    <Content Include="wwwroot\website\website.component.css" />
+    <Content Include="wwwroot\website\website.component.html" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -249,6 +269,7 @@
     <Compile Include="Server\Controllers\SponsorController.cs" />
     <Compile Include="Server\Controllers\TagController.cs" />
     <Compile Include="Server\Controllers\UserController.cs" />
+    <Compile Include="Server\Controllers\WebsiteController.cs" />
     <Compile Include="Server\Data\ChloeContext.cs" />
     <Compile Include="Server\Data\ChloeUow.cs" />
     <Compile Include="Server\Data\Contracts\IChloeUow.cs" />
@@ -286,6 +307,7 @@
     <Compile Include="Server\Dtos\TagAddOrUpdateResponseDto.cs" />
     <Compile Include="Server\Dtos\TagDto.cs" />
     <Compile Include="Server\Dtos\TokenDto.cs" />
+    <Compile Include="Server\Dtos\WebsiteDto.cs" />
     <Compile Include="Server\Models\Author.cs" />
     <Compile Include="Server\Models\BaseEntity.cs" />
     <Compile Include="Server\Models\Brand.cs" />
@@ -318,6 +340,7 @@
     <Compile Include="Server\Models\Tag.cs" />
     <Compile Include="Server\Models\User.cs" />
     <Compile Include="Server\Models\UserBrand.cs" />
+    <Compile Include="Server\Models\Website.cs" />
     <Compile Include="Server\Services\AuthorService.cs" />
     <Compile Include="Server\Services\BrandService.cs" />
     <Compile Include="Server\Services\CacheProvider.cs" />
@@ -336,6 +359,7 @@
     <Compile Include="Server\Services\Contracts\ISponsorService.cs" />
     <Compile Include="Server\Services\Contracts\ITagService.cs" />
     <Compile Include="Server\Services\Contracts\IUserService.cs" />
+    <Compile Include="Server\Services\Contracts\IWebsiteService.cs" />
     <Compile Include="Server\Services\Contracts\MemoryCache.cs" />
     <Compile Include="Server\Services\CustomerService.cs" />
     <Compile Include="Server\Services\DescriptionService.cs" />
@@ -351,6 +375,7 @@
     <Compile Include="Server\Services\StreamHelper.cs" />
     <Compile Include="Server\Services\TagService.cs" />
     <Compile Include="Server\Services\UserService.cs" />
+    <Compile Include="Server\Services\WebsiteService.cs" />
     <Compile Include="Server\UnityConfiguration.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -364,6 +389,16 @@
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\requirejs\require.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
+    <TypeScriptCompile Include="wwwroot\admin-page\admin-page.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\admin-page\admin-page.component.ts" />
+    <TypeScriptCompile Include="wwwroot\admin-page\admin-page.module.ts" />
+    <TypeScriptCompile Include="wwwroot\admin-page\admin-page.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\admin-page\admin-page.service.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.module.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.service.ts" />
     <TypeScriptCompile Include="wwwroot\core\action-creator.ts" />
     <TypeScriptCompile Include="wwwroot\core\add-or-update.ts" />
     <TypeScriptCompile Include="wwwroot\core\api-endpoint-provider.ts" />
@@ -383,7 +418,34 @@
     <TypeScriptCompile Include="wwwroot\core\safe-digest.ts" />
     <TypeScriptCompile Include="wwwroot\core\service.ts" />
     <TypeScriptCompile Include="wwwroot\core\store.ts" />
+    <TypeScriptCompile Include="wwwroot\footer\footer.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\footer\footer.component.ts" />
+    <TypeScriptCompile Include="wwwroot\footer\footer.module.ts" />
+    <TypeScriptCompile Include="wwwroot\footer\footer.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\footer\footer.service.ts" />
+    <TypeScriptCompile Include="wwwroot\header\header.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\header\header.component.ts" />
+    <TypeScriptCompile Include="wwwroot\header\header.module.ts" />
+    <TypeScriptCompile Include="wwwroot\header\header.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\header\header.service.ts" />
+    <TypeScriptCompile Include="wwwroot\home-page\home-page.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\home-page\home-page.component.ts" />
+    <TypeScriptCompile Include="wwwroot\home-page\home-page.module.ts" />
+    <TypeScriptCompile Include="wwwroot\home-page\home-page.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\home-page\home-page.service.ts" />
     <TypeScriptCompile Include="wwwroot\main.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tabs.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tabs.component.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tabs.module.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tabs.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\tabs\tabs.service.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website-editor.component.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website-list.component.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website.component.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website.module.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

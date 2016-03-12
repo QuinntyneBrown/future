@@ -2,7 +2,6 @@
 using Chloe.Server.Models;
 using System.Data.Entity;
 
-
 namespace Chloe.Server.Data
 {
     public class ChloeContext: DbContext, IDbContext
@@ -16,7 +15,7 @@ namespace Chloe.Server.Data
         }
 
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -24,6 +23,8 @@ namespace Chloe.Server.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }
+        public DbSet<Website> Websites { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
      

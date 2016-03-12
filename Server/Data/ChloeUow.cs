@@ -35,6 +35,7 @@ namespace Chloe.Server.Data
         public IRepository<Gallery> Galleries { get { return GetStandardRepo<Gallery>(); } }
         public IRepository<Author> Authors { get { return GetStandardRepo<Author>(); } }
         public IRepository<Tag> Tags { get { return GetStandardRepo<Tag>(); } }
+        public IRepository<Website> Websites { get { return GetStandardRepo<Website>(); } }
 
         protected void ConfigureDbContext(IDbContext dbContext)
         {
