@@ -8,6 +8,9 @@ import { LoginActionCreator } from "./login.actions";
 })
 export class LoginComponent {
     constructor(private invokeAsync, private loginActionCreator: LoginActionCreator) { }
+
+    storeOnChange = state => alert(state.token);
+
     tryToLogin = () => {
         this.invokeAsync({
             action: this.loginActionCreator.tryToLogin,

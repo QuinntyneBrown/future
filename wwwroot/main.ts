@@ -8,6 +8,7 @@ require("./tabs/tabs.module");
 require("./login/login.module");
 require("./modal/modal.module");
 require("./registration/registration.module");
+require("./website/website.module");
 
 require("./home-page/home-page.module");
 require("./admin-page/admin-page.module");
@@ -22,6 +23,7 @@ var app: any = angular.module("future", [
     "app.login",
     "app.modal",
     "app.registration",
+    "app.website",
 
     "app.adminPage",
     "app.homePage"
@@ -43,6 +45,7 @@ app.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => 
         .when("/", { template: "<home-page></home-page>" })
         .when("/admin", { template: "<admin-page></admin-page>" })
         .when("/registration", { template: "<registration></registration>" })
+        .when("/website/list", { template: "<website-list></website-list>" })
         .when("/login", { template: "<login></login>" });
 }]);
 

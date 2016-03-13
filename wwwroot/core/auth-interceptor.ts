@@ -6,9 +6,7 @@
 
     static createInstance = store => new AuthInterceptor(store);
 
-    storeOnChange = state => {
-        this.token = state.token
-    };
+    storeOnChange = state => { this.token = state.token };
 
     public request = (config) => {
         if (this.token) 

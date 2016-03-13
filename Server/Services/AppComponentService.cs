@@ -6,31 +6,32 @@ using System;
 
 namespace Chloe.Server.Services
 {
-    public class ComponentService: IComponentService
+    public class AppComponentService : IAppComponentService
     {
-        public ComponentService(IChloeUow uow, ICacheProvider cacheProvider)
+
+        public AppComponentService(IChloeUow uow, ICacheProvider cacheProvider)
         {
             this.uow = uow;
             this.cache = cacheProvider.GetCache();
         }
 
-        public ICollection<ComponentDto> GetAllComponents()
+        public ICollection<AppComponentDto> GetAllAppComponents()
         {
-            ICollection<ComponentDto> result = new List<ComponentDto>();
+            ICollection<AppComponentDto> result = new List<AppComponentDto>();
             return result;
         }
 
-        public ComponentAddOrUpdateResponseDto AddOrUpdate(ComponentAddOrUpdateRequestDto request)
+        public AppComponentAddOrUpdateResponseDto AddOrUpdate(AppComponentAddOrUpdateRequestDto request)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<ComponentDto> GetAll()
+        public ICollection<AppComponentDto> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public ComponentDto GetBySlug(string slug)
+        public AppComponentDto GetBySlug(string slug)
         {
             throw new NotImplementedException();
         }

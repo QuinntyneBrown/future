@@ -16,7 +16,10 @@ namespace Chloe.Server
             container.RegisterType<IChloeUow, ChloeUow>();
             container.RegisterType<IDbContext, ChloeContext>();
             container.RegisterType<IRepositoryProvider, RepositoryProvider>();
+
+            container.RegisterType<IAppComponentService, AppComponentService>();
             container.RegisterType<IBrandService, BrandService>();
+            container.RegisterType<IComponentService, ComponentService>();
             container.RegisterType<IGalleryService, GalleryService>();
             container.RegisterType<IPhotoService, PhotoService>();
             container.RegisterType<IEncryptionService, EncryptionService>();

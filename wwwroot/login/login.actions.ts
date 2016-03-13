@@ -23,7 +23,7 @@ export class LoginActionCreator extends BaseActionCreator {
     service: LoginService;
 }
 
-export class UserLoggedInAction { constructor(public id, public entity) { } }
+export class UserLoggedInAction { constructor(public id, public data) { } }
 
 export class AddOrUpdateLoginAction { constructor(public id, public entity) { } }
 
