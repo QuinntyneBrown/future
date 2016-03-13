@@ -1,16 +1,29 @@
 import { IDispatcher } from "../core/store";
 import { BaseActionCreator } from "../core/action-creator";
+import { LoginService } from "./login.service";
 
 export class LoginActionCreator extends BaseActionCreator {
-    constructor($location: angular.ILocationService, dispatcher: IDispatcher, loginService, guid) {
+    constructor($location: angular.ILocationService, dispatcher: IDispatcher, loginService: LoginService, guid) {
         super($location,loginService,dispatcher,guid,AddOrUpdateLoginAction,AllLoginsAction,RemoveLoginAction,SetCurrentLoginAction)
     }    
 
     tryToLogin = options => {
-
+        var newId = this.guid();
+        this.service.tryToLogin({
+            data: {
+                username: options.username,
+                password: options.password
+            }
+        }).then(results => {
+            this.dispatcher.dispatch(new UserLoggedInAction(newId, results));
+        });
+        return newId;
     }
+
+    service: LoginService;
 }
 
+export class UserLoggedInAction { constructor(public id, public entity) { } }
 
 export class AddOrUpdateLoginAction { constructor(public id, public entity) { } }
 

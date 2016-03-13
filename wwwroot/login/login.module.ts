@@ -10,7 +10,7 @@ var app = (<any>angular.module("app.login", [
 ]));
 
 app.service("loginActionCreator",["$location","dispatcher","loginService","guid",LoginActionCreator]);
-app.service("loginService",["$q","apiEndpoint","fetch",LoginService]);
+app.service("loginService", ["$q", "apiEndpoint", "fetch","formEncode", LoginService]);
 app.component(LoginComponent);
 
 app.config(["reducersProvider", reducersProvider => {	

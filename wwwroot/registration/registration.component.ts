@@ -9,4 +9,17 @@ import { RegistrationActionCreator } from "./registration.actions";
 export class RegistrationComponent {
     constructor(private registrationActionCreator: RegistrationActionCreator) { }
   
+    tryToRegister = () => {        
+        this.registrationActionCreator.register({
+            data: this.entity
+        });
+    }
+
+    entity = {
+        firstname: "Mike",
+        lastname: "Jackson",
+        emailAddress: "Mike@Jackson.com",
+        confirmEmailAddress: "Mike@Jackson.com",
+        password: "password",
+    }
 }

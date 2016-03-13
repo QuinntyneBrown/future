@@ -42,7 +42,7 @@ namespace Chloe.Server.Services
         {
             var claims = new List<System.Security.Claims.Claim>();
 
-            var user = FromCacheOrService<User>(() => uow.Users.GetAll()
+            var user = cache.FromCacheOrService<User>(() => uow.Users.GetAll()
                 .Include(x => x.Roles)
                 .Single(x => x.Username == username), string.Format("User: {0}", username));
 
@@ -55,21 +55,7 @@ namespace Chloe.Server.Services
 
             return claims;
         }
-
-        protected TResp FromCacheOrService<TResp>(Func<TResp> action, string key)
-        {
-            var cached = cache.Get(key);
-
-            if (cached == null)
-            {
-                cached = action();
-                cache.Add(cached, key);
-            }
-
-            return (TResp)cached;
-        }
-
-
+        
         protected readonly IChloeUow uow;
         protected readonly ICache cache;
         protected readonly IEncryptionService encryptionService;

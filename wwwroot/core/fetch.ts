@@ -8,8 +8,8 @@
         var deferred = this.$q.defer();
         this.$http({ method: options.method, url: options.url, data: options.data, params: options.params, headers: options.headers }).then((results) => {
             deferred.resolve(results);
-        }).catch((error) => {
-
+        }).catch((error:Error) => {
+            deferred.reject(error);
         });
         return deferred.promise;
     }

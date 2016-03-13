@@ -30,6 +30,7 @@ namespace Chloe.Server
             container.RegisterType<ISponsorService, SponsorService>();
             container.RegisterType<ICustomerService, CustomerService>();
             container.RegisterType<IWebsiteService, WebsiteService>();
+            container.RegisterType<IUserService, UserService>();
             return container;
         }
     }

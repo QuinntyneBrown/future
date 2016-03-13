@@ -46,3 +46,7 @@ app.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => 
         .when("/login", { template: "<login></login>" });
 }]);
 
+app.config(["apiEndpointProvider", (apiEndpointProvider) => {
+    apiEndpointProvider.configure("/api");
+}]);
+

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Caching;
-using System.Web;
 
-namespace Chloe.Server.Services.Contracts
+namespace Chloe.Server.Services
 {
-    public class MemoryCache : ICache
+    public class MemoryCache : Cache
     {
         private static volatile MemoryCache current = null;
         ObjectCache cache = System.Runtime.Caching.MemoryCache.Default;
@@ -21,17 +18,17 @@ namespace Chloe.Server.Services.Contracts
             }
         }
 
-        public T Get<T>(string key)
+        public override T Get<T>(string key)
         {
             return (T)Get(key);
         }
 
-        public object Get(string key)
+        public override object Get(string key)
         {
             return cache[key];
         }
 
-        public void Add(object objectToCache, string key)
+        public override void Add(object objectToCache, string key)
         {
             if (objectToCache == null)
             {
@@ -43,7 +40,7 @@ namespace Chloe.Server.Services.Contracts
             }
         }
 
-        public void Add<T>(object objectToCache, string key)
+        public override void Add<T>(object objectToCache, string key)
         {
             if (objectToCache == null)
             {
@@ -55,22 +52,22 @@ namespace Chloe.Server.Services.Contracts
             }
         }
 
-        public void Add<T>(object objectToCache, string key, double cacheDuration)
+        public override void Add<T>(object objectToCache, string key, double cacheDuration)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(string key)
+        public override void Remove(string key)
         {
             cache.Remove(key);
         }
 
-        public void ClearAll()
+        public override void ClearAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Exists(string key)
+        public override bool Exists(string key)
         {
             throw new NotImplementedException();
         }

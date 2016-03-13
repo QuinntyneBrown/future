@@ -22,5 +22,7 @@ namespace Chloe.Server.Services.Contracts
         void ClearAll();
 
         bool Exists(string key);
+
+        TResponse FromCacheOrService<TResponse>(Func<TResponse> action, string key);
     }
 }
