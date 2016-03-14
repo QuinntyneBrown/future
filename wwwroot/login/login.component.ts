@@ -8,19 +8,16 @@ import { LoginActionCreator } from "./login.actions";
 })
 export class LoginComponent {
     constructor(private invokeAsync, private loginActionCreator: LoginActionCreator) { }
-
-    storeOnChange = state => alert(state.token);
-
+    
     tryToLogin = () => {
         this.invokeAsync({
             action: this.loginActionCreator.tryToLogin,
             params: { username: this.username, password: this.password }
         }).then(results => {
-
+            this.loginActionCreator.loginSuccess();
         });
     }
-    username = "quinntyne@hotmail.com";
-    password = "password";
+
+    username;
+    password;
 }
-
-

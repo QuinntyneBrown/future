@@ -20,8 +20,12 @@ export class LoginActionCreator extends BaseActionCreator {
         return newId;
     }
 
+    loginSuccess = () => this.dispatcher.dispatch(new LoginSuccessAction()); 
+
     service: LoginService;
 }
+
+export class LoginSuccessAction { constructor() { } }
 
 export class UserLoggedInAction { constructor(public id, public data) { } }
 

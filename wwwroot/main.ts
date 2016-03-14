@@ -56,7 +56,7 @@ app.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => 
         .when("/register", { template: "<registration-page></registration>" })
         .when("/websites", { template: "<websites-page></websites-page>" })
         .when("/website/edit/:id", { template: "<websites-page></websites-page>" })
-        .when("/login", { template: "<login></login>" });
+        .when("/login", { template: "<login-page></login-page>" });
 }]);
 
 app.config(["apiEndpointProvider", (apiEndpointProvider) => {

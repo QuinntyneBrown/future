@@ -1,16 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
 body {
     font-family: 'Lato', sans-serif;
     color: #333;
@@ -24,6 +12,18 @@ body {
     padding-left:30px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 .button {
     margin-top:15px;
     margin-bottom:30px;
@@ -33,10 +33,6 @@ body {
     border: solid 1px;
     cursor:pointer;
 }
-
-
-
-
 
 
 
@@ -101,6 +97,10 @@ body {
 .tabs-contentInActive {
     display:none;
 }
+
+
+
+
 
 
 

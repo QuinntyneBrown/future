@@ -193,6 +193,7 @@
     <Content Include="lib\angular-route.js" />
     <Content Include="lib\angular.js" />
     <Content Include="lib\jquery.js" />
+    <Content Include="lib\pnp-ww.js" />
     <Content Include="lib\rx.all.compat.min.js" />
     <Content Include="packages.config" />
     <Content Include="tsconfig.json" />
@@ -272,6 +273,7 @@
     <Content Include="wwwroot\header\header.component.html" />
     <Content Include="wwwroot\home-page\home-page.component.css" />
     <Content Include="wwwroot\home-page\home-page.component.html" />
+    <Content Include="wwwroot\login\login-page.component.html" />
     <Content Include="wwwroot\login\login.component.css" />
     <Content Include="wwwroot\login\login.component.html" />
     <Content Include="wwwroot\meta-data\meta-data-editor.component.css" />
@@ -681,6 +683,7 @@
     <TypeScriptCompile Include="wwwroot\home-page\home-page.module.ts" />
     <TypeScriptCompile Include="wwwroot\home-page\home-page.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\home-page\home-page.service.ts" />
+    <TypeScriptCompile Include="wwwroot\login\login-page.component.ts" />
     <TypeScriptCompile Include="wwwroot\login\login.actions.ts" />
     <TypeScriptCompile Include="wwwroot\login\login.component.ts" />
     <TypeScriptCompile Include="wwwroot\login\login.module.ts" />

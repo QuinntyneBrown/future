@@ -87,8 +87,7 @@ export class Modal {
         }, 100);
         return deferred.promise;
     }
-
-
+    
     appendModalToBodyAsync = () => this.appendToBodyAsync({ nativeElement: this.nativeElement });
 
     showAsync = () => this.extendCssAsync({
