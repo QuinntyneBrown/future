@@ -14,7 +14,6 @@ app.service("modalActionCreator", ["$rootScope","dispatcher",ModalActionCreator]
 
 app.service("modal", [
     "$compile",
-    "$location",
     "$q",
     "$rootScope",
     "appendToBodyAsync",

@@ -2,7 +2,6 @@ import * as actions from "./modal.actions";
 
 export class Modal {
     constructor(private $compile,
-        private $location,
         private $q,
         private $rootScope,
         private appendToBodyAsync,
@@ -15,23 +14,30 @@ export class Modal {
         store.subscribe(this.storeOnChange);
     }
 
-    storeOnChange = state => {
-        if (state.modalOpen && !this.isOpen) {
-            this.isOpen = state.modalOpen;
-            this.openAsync({ html: state.modalHtml });
-        }
+    storeOnChange = state => [ this.html, this.isOpen ] = [ state.modelHtml, state.isModalOpen ];
+    
+    _html: string;
 
-        if (!state.modalOpen && this.isOpen) {
-            this.isOpen = state.modalOpen;
+    get html() { return this._html; }
+
+    set html(value: string) { this._html = value; }
+
+    _isOpen:boolean = false;
+
+    get isOpen() { return this._isOpen; }
+
+    set isOpen(value: boolean) {
+        if (value && !this._isOpen)
+            this.openAsync();
+
+        if (!value && this._isOpen)
             this.closeAsync();
-        }
+
+        this._isOpen = value;
     }
 
-    isOpen = false;
-    openAsync = options => {
-        
+    openAsync = () => {        
         var openAsyncFn = () => {
-            this._html = options.html;
             return this.initializeAsync()
                 .then(this.backdrop.openAsync)
                 .then(this.appendModalToBodyAsync)
@@ -42,7 +48,6 @@ export class Modal {
 
     initializeAsync = () => {
         var deferred = this.$q.defer();
-        this.$scope = this.$rootScope.$new();
         this.compileAsync().then(() => {
             this.nativeElement = this.augmentedJQuery[0];
             this.extendCssAsync({
@@ -74,6 +79,7 @@ export class Modal {
 
     compileAsync = () => {
         var deferred = this.$q.defer();
+        this.$scope = this.$rootScope.$new();
         this.augmentedJQuery = this.$compile(angular.element(this.html))(this.$scope);
         setTimeout(() => {
             this.$scope.$digest()
@@ -95,9 +101,7 @@ export class Modal {
 
     closeAsync = () => {
         if (!this.pinned) {
-            var deferred = this.$q.defer();
-
-
+            var deferred = this.$q.defer();            
             try {
                 this.extendCssAsync({
                     nativeHTMLElement: this.nativeElement,
@@ -119,8 +123,6 @@ export class Modal {
 
     dispose = () => { }
 
-    get html() { return this._html; }
-
     togglePin = () => {
         if (this.pinned) {
             this.pinned = false;
@@ -133,6 +135,6 @@ export class Modal {
     $scope;
     augmentedJQuery;
     nativeElement;
-    _html;
+    
     pinned = false;
 }
