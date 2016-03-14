@@ -1,14 +1,22 @@
 ﻿import { CanActivate, Component } from "../core/component-decorators";
-import { WebsiteActionCreator } from "./website.actions";
+import * as actions from "./website.actions";
 
 @Component({
     route:"/websites",
     templateUrl: "wwwroot/website/websites-page.component.html",
     selector: "websites-page",
-    providers: ["websiteActionCreator"]
+    providers: ["$location","websiteActionCreator"]
 })
 @CanActivate([
     "websiteActionCreator", "invokeAsync",
-    (websiteActionCreator: WebsiteActionCreator, invokeAsync) => invokeAsync(websiteActionCreator.all)
+    (websiteActionCreator: actions.WebsiteActionCreator, invokeAsync) => invokeAsync(websiteActionCreator.all)
 ])
-export class WebsitesPageComponent { }
+export class WebsitesPageComponent {
+    constructor(private $location: angular.ILocationService, websiteActionCreator: actions.WebsiteActionCreator) { }
+
+    storeOnChange = state => {        
+        if (state.lastTriggeredByAction instanceof actions.SetCurrentWebsiteAction) {
+            this.$location.path("/website/edit/" + state.lastTriggeredByAction.entity.id);
+        }
+    }
+}

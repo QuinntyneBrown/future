@@ -5,19 +5,16 @@ import { WebsiteActionCreator } from "./website.actions";
     route: "/website/list",
     templateUrl: "wwwroot/website/website-list.component.html",
     selector: "website-list",
-    providers: ["$location","websiteActionCreator"]
+    providers: ["websiteActionCreator"]
 })
 @CanActivate([
     "websiteActionCreator", "invokeAsync",
     (websiteActionCreator: WebsiteActionCreator, invokeAsync) => invokeAsync(websiteActionCreator.all)
 ])
 export class WebsiteListComponent {
-    constructor(private $location: angular.ILocationService,private websiteActionCreator: WebsiteActionCreator) { }
-    storeOnChange = state => {
-        this.entities = state.websites;
-        console.log(state.websites.length);
-    };   
+    constructor(private websiteActionCreator: WebsiteActionCreator) { }
+    storeOnChange = state => this.entities = state.websites;      
     entities;
-    remove = website => this.websiteActionCreator.remove({ entity: website });
-    edit = website => this.websiteActionCreator.edit({ entity: website });    
+    remove = entity => this.websiteActionCreator.remove({ entity: entity });
+    edit = entity => this.websiteActionCreator.edit({ entity: entity });    
 }

@@ -51,7 +51,7 @@ export class Store<T> extends Rx.BehaviorSubject<T> implements IStore {
 
     setLastTriggeredByActionId = (state, action) => {
         state.lastTriggeredByActionId = action.id;
-        state.lastTriggeredByAction = null;
+        state.lastTriggeredByAction = action;
         return state;
     }
 

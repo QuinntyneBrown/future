@@ -16,6 +16,8 @@ export class RegistrationActionCreator extends BaseActionCreator {
         return newId
     }
 
+    public registrationSuccess = options => this.dispatcher.dispatch(new RegistrationSuccess(options.entity));
+    
     service: RegistrationService;
 }
 
@@ -30,3 +32,5 @@ export class RemoveRegistrationAction { constructor(public id, public entity) { 
 export class RegistrationsFilterAction { constructor(public id, public term) { } }
 
 export class SetCurrentRegistrationAction { constructor(public entity) { } }
+
+export class RegistrationSuccess { constructor(public entity) { } }

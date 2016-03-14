@@ -53,7 +53,7 @@ app.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => 
     $routeProvider
         .when("/", { template: "<home-page></home-page>" })
         .when("/admin", { template: "<admin-page></admin-page>" })
-        .when("/registration", { template: "<registration></registration>" })
+        .when("/register", { template: "<registration-page></registration>" })
         .when("/websites", { template: "<websites-page></websites-page>" })
         .when("/website/edit/:id", { template: "<websites-page></websites-page>" })
         .when("/login", { template: "<login></login>" });

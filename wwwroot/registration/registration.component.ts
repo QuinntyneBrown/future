@@ -3,23 +3,24 @@ import { RegistrationActionCreator } from "./registration.actions";
 
 @Component({
     templateUrl: "wwwroot/registration/registration.component.html",
+    styleUrls: ["wwwroot/registration/registration.component.css"],
     selector: "registration",
-    providers: ["registrationActionCreator"]
+    providers: ["invokeAsync","registrationActionCreator"]
+  
 })
 export class RegistrationComponent {
-    constructor(private registrationActionCreator: RegistrationActionCreator) { }
+    constructor(private invokeAsync, private registrationActionCreator: RegistrationActionCreator) { }
   
-    tryToRegister = () => {        
-        this.registrationActionCreator.register({
-            data: this.entity
-        });
+    tryToRegister = () => {  
+        this.invokeAsync({
+            action: this.registrationActionCreator.register,
+            params: {
+                data: this.entity
+            }
+        }).then(() => {
+            this.registrationActionCreator.registrationSuccess({ entity: this.entity });
+        });     
     }
 
-    entity = {
-        firstname: "Mike",
-        lastname: "Jackson",
-        emailAddress: "Mike@Jackson.com",
-        confirmEmailAddress: "Mike@Jackson.com",
-        password: "password",
-    }
+    entity;
 }

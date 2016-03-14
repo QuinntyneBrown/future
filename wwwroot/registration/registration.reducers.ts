@@ -20,3 +20,10 @@ export const allRegistrationsReducer = (state, action) => {
     }
     return state;
 }
+
+export const registrationSuccessReducer = (state, action) => {
+    if (action instanceof actions.RegistrationSuccess) {
+        state.lastTriggeredByAction = action;
+    }
+    return state;
+}

@@ -48,7 +48,7 @@ export class BaseActionCreator {
         return newId;
     }
 
-    edit = options => this.dispatcher.dispatch(new this.setCurrentAction(options.id));
+    edit = options => this.dispatcher.dispatch(new this.setCurrentAction(options.entity));
     
 
     create = () => this.dispatcher.dispatch(new this.setCurrentAction(null));

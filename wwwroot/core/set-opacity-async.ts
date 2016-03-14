@@ -1,9 +1,5 @@
-﻿
-import { $q } from "./$q";
+﻿import { $q } from "./$q";
 
-/**
- * @module ngX
- */
 export var setOpacityAsync = (options: any) => {
     var deferred = $q.defer();
     if (options.nativeHtmlElement) {
