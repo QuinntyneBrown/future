@@ -1,4 +1,5 @@
 ﻿using Chloe.Server.Models;
+using Chloe.Server.Models.Components;
 
 namespace Chloe.Server.Data.Contracts
 {
@@ -12,6 +13,7 @@ namespace Chloe.Server.Data.Contracts
         IRepository<Gallery> Galleries { get; }
         IRepository<Tag> Tags { get; }
         IRepository<Website> Websites { get; }
+        IRepository<RouteConfiguration> RouteConfigurations { get; }
         void SaveChanges();
     }
 }

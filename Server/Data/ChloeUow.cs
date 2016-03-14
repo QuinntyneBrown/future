@@ -1,5 +1,6 @@
 ﻿using Chloe.Server.Data.Contracts;
 using Chloe.Server.Models;
+using Chloe.Server.Models.Components;
 using System;
 
 namespace Chloe.Server.Data
@@ -36,6 +37,7 @@ namespace Chloe.Server.Data
         public IRepository<Author> Authors { get { return GetStandardRepo<Author>(); } }
         public IRepository<Tag> Tags { get { return GetStandardRepo<Tag>(); } }
         public IRepository<Website> Websites { get { return GetStandardRepo<Website>(); } }
+        public IRepository<RouteConfiguration> RouteConfigurations { get { return GetStandardRepo<RouteConfiguration>(); } }
 
         protected void ConfigureDbContext(IDbContext dbContext)
         {

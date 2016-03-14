@@ -1,0 +1,15 @@
+<div class="sponsorList">
+    <div class="sponsorList-header">
+        <h1>Sponsors</h1>
+    </div>
+    
+    <div data-ng-repeat="entity in vm.entities" class="sponsorList-item">
+        <div class="sponsorList-name">
+            {{ entity.name }}
+        </div>
+        <div class="sponsorList-actions">
+            <span data-ng-click="vm.edit(entity)">edit</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span data-ng-click="vm.remove(entity)">remove</span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
