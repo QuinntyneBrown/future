@@ -13,7 +13,10 @@ import { WebsiteActionCreator } from "./website.actions";
 ])
 export class WebsiteListComponent {
     constructor(private $location: angular.ILocationService,private websiteActionCreator: WebsiteActionCreator) { }
-    storeOnChange = state =>  this.entities = state.websites;   
+    storeOnChange = state => {
+        this.entities = state.websites;
+        console.log(state.websites.length);
+    };   
     entities;
     remove = website => this.websiteActionCreator.remove({ entity: website });
     edit = website => this.websiteActionCreator.edit({ entity: website });    

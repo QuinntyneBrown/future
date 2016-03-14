@@ -13,7 +13,7 @@ export class BaseActionCreator {
 
     getById = options => {
         var newId = this.guid();
-        this.service.get().then(results => {
+        this.service.getById({ id: options.id }).then(results => {
             var action = new this.addOrUpdateAction(newId, results);
             this.dispatcher.dispatch(action);
         });
@@ -48,7 +48,7 @@ export class BaseActionCreator {
         return newId;
     }
 
-    edit = options => this.dispatcher.dispatch(new this.setCurrentAction(options.entity));
+    edit = options => this.dispatcher.dispatch(new this.setCurrentAction(options.id));
     
 
     create = () => this.dispatcher.dispatch(new this.setCurrentAction(null));

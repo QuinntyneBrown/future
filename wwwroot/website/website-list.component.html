@@ -1,3 +1,16 @@
-<div>
-    <h1>Website List</h1>
+<div class="websiteList">
+    <div class="websiteList-header">
+        <h1>Websites</h1>
+    </div>
+
+
+    <div data-ng-repeat="entity in vm.entities" class="websiteList-item">
+        <div class="websiteList-name">
+            {{ entity.name }}
+        </div>
+        <div class="websiteList-actions">
+            <span data-ng-click="vm.edit(entity)">edit</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span data-ng-click="vm.remove(entity)">remove</span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
 </div>

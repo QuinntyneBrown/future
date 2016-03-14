@@ -3,6 +3,7 @@
 require("./app/app.module");
 require("./button/button.module");
 
+require("./component/component.module");
 require("./header/header.module");
 require("./tabs/tabs.module");
 require("./login/login.module");
@@ -18,6 +19,7 @@ var app: any = angular.module("future", [
 
     "app.app",
     "app.button",
+    "app.component",
     "app.header",
     "app.tabs",
     "app.login",
@@ -45,7 +47,8 @@ app.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => 
         .when("/", { template: "<home-page></home-page>" })
         .when("/admin", { template: "<admin-page></admin-page>" })
         .when("/registration", { template: "<registration></registration>" })
-        .when("/website/list", { template: "<website-list></website-list>" })
+        .when("/websites", { template: "<websites-page></websites-page>" })
+        .when("/website/edit/:id", { template: "<websites-page></websites-page>" })
         .when("/login", { template: "<login></login>" });
 }]);
 

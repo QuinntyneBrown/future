@@ -5,8 +5,9 @@ namespace Chloe.Server.Services.Contracts
 {
     public interface IWebsiteService
     {
-        WebsiteAddOrUpdateResponseDto AddOrUpdate(WebsiteAddOrUpdateRequestDto dto);
-        bool Remove(int id);
+        WebsiteAddOrUpdateResponseDto AddOrUpdate(WebsiteAddOrUpdateRequestDto request);
+        int Remove(int id);
         ICollection<WebsiteDto> Get();
+        WebsiteDto GetById(int id);
     }
 }

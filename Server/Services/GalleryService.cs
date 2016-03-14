@@ -37,13 +37,7 @@ namespace Chloe.Server.Services
 
             uow.Galleries.GetAll().Include(x => x.Photos)
                 .Where(x => x.IsDeleted == false)
-                .ForEachAsync( x => response.Add(new GalleryDto(x)));
-
-            //foreach (var gallery in uow.Galleries.GetAll().Include(x=> x.Photos).Where(x => x.IsDeleted == false))
-            //{
-            //    response.Add(new GalleryDto(gallery));
-            //}
-            
+                .ForEachAsync( x => response.Add(new GalleryDto(x))); 
             return response;
         }
 

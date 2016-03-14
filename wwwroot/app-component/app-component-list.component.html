@@ -1,0 +1,15 @@
+<div class="appComponentList">
+    <div class="appComponentList-header">
+        <h1>AppComponents</h1>
+    </div>
+    
+    <div data-ng-repeat="entity in vm.entities" class="appComponentList-item">
+        <div class="appComponentList-name">
+            {{ entity.name }}
+        </div>
+        <div class="appComponentList-actions">
+            <span data-ng-click="vm.edit(entity)">edit</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span data-ng-click="vm.remove(entity)">remove</span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>

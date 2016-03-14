@@ -1,50 +1,54 @@
 import { CanActivate, Component } from "../core/component-decorators";
-import { WebsiteActionCreator } from "./website.actions";
+import * as actions from "./website.actions";
+import { pluck } from "../core/pluck";
 
 @Component({
     route: "/website/edit/:id",
     templateUrl: "wwwroot/website/website-editor.component.html",
     selector: "website-editor",
-    providers: ["$location","websiteActionCreator","invokeAsync"]
+    providers: ["$location","$routeParams","websiteActionCreator","invokeAsync"]
 })
-@CanActivate(["$route", "invokeAsync", "websiteActionCreator", ($route, invokeAsync, websiteActionCreator: WebsiteActionCreator) => {
+@CanActivate(["$q", "$route", "invokeAsync", "websiteActionCreator", ($q: angular.IQService, $route, invokeAsync, websiteActionCreator: actions.WebsiteActionCreator) => {
     var id = $route.current.params.id;
-    return invokeAsync({
-        action: websiteActionCreator.getById,
-        params: { id: id }
-    });
+    return $q.all([
+        invokeAsync({ action: websiteActionCreator.getById, params: { id: id } }),
+        invokeAsync(websiteActionCreator.all)
+    ]);
 }])
 export class WebsiteEditorComponent {
-    constructor(private $location: angular.ILocationService, private websiteActionCreator: WebsiteActionCreator, private invokeAsync) { }
+    constructor(private $location: angular.ILocationService, private $routeParams: angular.route.IRouteParamsService, private websiteActionCreator: actions.WebsiteActionCreator, private invokeAsync) { }
 
-    storeOnChange = state => { }
+    storeOnChange = state => {
+        this.entities = state.websites;
+        if (state.lastTriggeredByAction instanceof actions.RemoveWebsiteAction && this.entity && this.entity.id) {
+            this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities });
+        }
+    }
+
+    ngOnInit = () => {
+        if (this.$routeParams["id"]) {
+            this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities });
+        } else {
+            this.entity = {};
+        }
+    }
 
     addOrUpdate = () => {
         this.invokeAsync({
             action: this.websiteActionCreator.addOrUpdate,
             params: {
-                data: {
-                    id: this.id,
-                }
+                data: this.entity
             }
-        }).then(() => {
-            if (!this.id && this.entities.filter(entity => entity.name === this.name).length > 0) {
-
-            }
-            else {
-
-            }
-        });
+        }).then(() => { this.entity = {}; });
     } 
     
-    create = () => {
-        this.websiteActionCreator.create();
-    }
+    create = () => { this.entity = {} }
 
-    remove = () => this.websiteActionCreator.remove({ id: this.id });
+    remove = () => this.websiteActionCreator.remove({ entity: this.entity });
          
     id;
 	name;
-	entities;
+    entity;
+    entities;
     baseUrl;
 }

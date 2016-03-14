@@ -1,4 +1,6 @@
-﻿class AuthInterceptor {
+﻿require("./store");
+
+class AuthInterceptor {
 
     constructor(private store) {
         store.subscribe(state => this.storeOnChange(state));

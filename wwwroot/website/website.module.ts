@@ -3,6 +3,8 @@ require("../core/core.module");
 import { WebsiteEditorComponent } from "./website-editor.component";
 import { WebsiteListComponent } from "./website-list.component";
 import { WebsiteComponent } from "./website.component";
+import { WebsitesPageComponent } from "./websites-page.component";
+
 import { WebsiteActionCreator } from "./website.actions";
 import { WebsiteService } from "./website.service";
 import *  as reducers from "./website.reducers";
@@ -16,6 +18,7 @@ app.service("websiteService",["$q","apiEndpoint","fetch",WebsiteService]);
 app.component(WebsiteEditorComponent);
 app.component(WebsiteListComponent);
 app.component(WebsiteComponent);
+app.component(WebsitesPageComponent);
 
 app.config(["reducersProvider", reducersProvider => {	
     for (var reducer in reducers) { reducersProvider.configure(reducers[reducer]); }

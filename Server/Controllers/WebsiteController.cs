@@ -4,6 +4,7 @@ using System.Web.Http;
 
 namespace Chloe.Server.Controllers
 {
+    
     [RoutePrefix("api/website")]
     public class WebsiteController : ApiController
     {
@@ -12,6 +13,7 @@ namespace Chloe.Server.Controllers
             this.service = service;
         }
 
+        [Authorize]
         [Route("add")]
         [HttpPost]
         public IHttpActionResult Add(WebsiteAddOrUpdateRequestDto dto) { return Ok(this.service.AddOrUpdate(dto)); }
@@ -24,7 +26,12 @@ namespace Chloe.Server.Controllers
         [Route("get")]
         [HttpGet]
         public IHttpActionResult Get() { return Ok(this.service.Get()); }
-        
+
+        [AllowAnonymous]
+        [Route("getById")]
+        [HttpGet]
+        public IHttpActionResult GetById(int id) { return Ok(this.service.GetById(id)); }
+
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id) { return Ok(this.service.Remove(id)); }

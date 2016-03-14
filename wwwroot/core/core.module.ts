@@ -16,10 +16,12 @@ require("./safe-digest");
 require("./component-extension");
 require("./route-resolver");
 require("./route-when-extension");
+require("./auth-interceptor");
 
 var app = (<any>angular.module("app.core", [
     "addOrUpdate",
     "apiEndpoint",
+    "authInterceptor",
     "fetch",
     "formEncode",
     "invokeAsync",
