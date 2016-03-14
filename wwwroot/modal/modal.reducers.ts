@@ -1,22 +1,21 @@
 import * as actions from "./modal.actions";
 import { addOrUpdate, pluckOut } from "../core";
 
-export const removeModalReducer = (state, action) => {
-    if (action instanceof actions.RemoveModalAction)
-        pluckOut({ items: state.modals, value: action.entity.id });
-    return state;
-}
 
-export const addModalReducer = (state, action) => {
-    if (action instanceof actions.AddOrUpdateModalAction) {
-        addOrUpdate({ items: state.modals, item: action.entity });
+export const openModalReducer = (state, action) => {
+    if (action instanceof actions.OpenModalAction) {
+        state.modalHtml = action.html;
+        state.modalOpen = true;
     }
     return state;
 }
 
-export const allModalsReducer = (state, action) => {
-    if (action instanceof actions.AllModalsAction) {
-        state.modals = action.entities;
+export const closeModalReducer = (state, action) => {
+    if (action instanceof actions.CloseModalAction) {
+        state.modalHtml = '';
+        state.modalOpen = false;
     }
     return state;
 }
+
+

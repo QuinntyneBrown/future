@@ -1,6 +1,8 @@
 ﻿require("./core/core.module");
+require("./router-outlet/router-outlet.module");
 
 require("./app/app.module");
+require("./backdrop/backdrop.module");
 require("./button/button.module");
 
 require("./component/component.module");
@@ -18,8 +20,10 @@ require("./admin-page/admin-page.module");
 
 var app: any = angular.module("future", [
     "app.core",
+    "app.routerOutlet",
 
     "app.app",
+    "app.backdrop",
     "app.button",
     "app.component",
     "app.customer",

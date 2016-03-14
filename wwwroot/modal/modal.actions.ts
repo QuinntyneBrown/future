@@ -1,19 +1,18 @@
 import { IDispatcher } from "../core/store";
-import { BaseActionCreator } from "../core/action-creator";
 
-export class ModalActionCreator extends BaseActionCreator {
-    constructor($location: angular.ILocationService, dispatcher: IDispatcher, modalService, guid) {
-        super($location,modalService,dispatcher,guid,AddOrUpdateModalAction,AllModalsAction,RemoveModalAction,SetCurrentModalAction)
-    }    
+export class ModalActionCreator  {
+    constructor(private $rootScope: angular.IRootScopeService, private dispatcher: IDispatcher) {
+        $rootScope.$on("$routeChangeSuccess", this.close);
+    }
+        
+    open = options => this.dispatcher.dispatch(new OpenModalAction(options.html));
+
+    close = () => this.dispatcher.dispatch(new CloseModalAction());
 }
 
+export class OpenModalAction { constructor(public html) { } }
 
-export class AddOrUpdateModalAction { constructor(public id, public entity) { } }
+export class CloseModalAction { constructor() { } }
 
-export class AllModalsAction { constructor(public id, public entities) { } }
 
-export class RemoveModalAction { constructor(public id, public entity) { } }
 
-export class ModalsFilterAction { constructor(public id, public term) { } }
-
-export class SetCurrentModalAction { constructor(public entity) { } }
