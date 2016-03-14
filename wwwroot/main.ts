@@ -4,6 +4,8 @@ require("./app/app.module");
 require("./button/button.module");
 
 require("./component/component.module");
+
+require("./customer/customer.module");
 require("./header/header.module");
 require("./tabs/tabs.module");
 require("./login/login.module");
@@ -20,6 +22,7 @@ var app: any = angular.module("future", [
     "app.app",
     "app.button",
     "app.component",
+    "app.customer",
     "app.header",
     "app.tabs",
     "app.login",
