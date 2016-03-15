@@ -25,17 +25,11 @@ namespace Chloe.Server.Controllers
         [AllowAnonymous]
         [HttpGet]
         public IHttpActionResult Get(AppComponentAddOrUpdateRequestDto dto) { return Ok(this.service.GetAll()); }
-
-        [AllowAnonymous]
-        [Route("getBySlug")]
-        [HttpGet]
-        public IHttpActionResult GetBySlug(string slug) { return Ok(this.service.GetBySlug(slug)); }
         
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id) { return Ok(this.service.Remove(id)); }
-
-
+        
         protected readonly IAppComponentService service;
 
     }

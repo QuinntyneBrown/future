@@ -7,12 +7,11 @@ namespace Chloe.Server.Models.Components
         public AppComponent()
         {
             this.Routes = new HashSet<RouteConfiguration>();
+            this.Components = new HashSet<Component>();
             this.ComponentType = ComponentType.App;
         }
 
-        public HeaderComponent Header { get; set; }
-
-        public FooterComponent Footer { get; set; }
+        public ICollection<Component> Components { get; set; }
 
         public ICollection<RouteConfiguration> Routes { get; set; }
     }

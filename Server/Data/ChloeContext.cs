@@ -25,6 +25,8 @@ namespace Chloe.Server.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }
         public DbSet<Website> Websites { get; set; }
+        public DbSet<AppComponent> AppComponents { get; set; }
+        public DbSet<Component> Components { get; set; }
         public DbSet<RouteConfiguration> RouteConfigurations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

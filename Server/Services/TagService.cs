@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Chloe.Server.Dtos;
 using Chloe.Server.Services.Contracts;
 using Chloe.Server.Data.Contracts;

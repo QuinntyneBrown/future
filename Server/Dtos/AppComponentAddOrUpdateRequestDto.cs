@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Chloe.Server.Dtos
 {
-    public class AppComponentAddOrUpdateRequestDto
+    public class AppComponentAddOrUpdateRequestDto: AppComponentDto
     {
     }
 }

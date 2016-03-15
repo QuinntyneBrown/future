@@ -46,9 +46,8 @@ export class RouteConfigurationEditorComponent {
 
     remove = () => this.routeConfigurationActionCreator.remove({ entity: this.entity });
          
-    id;
-	name;
-	entity;
+    entity;
+
 	entities;
     baseUrl;
 }

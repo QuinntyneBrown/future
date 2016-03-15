@@ -39,6 +39,9 @@ namespace Chloe.Server.Data
         public IRepository<Website> Websites { get { return GetStandardRepo<Website>(); } }
         public IRepository<RouteConfiguration> RouteConfigurations { get { return GetStandardRepo<RouteConfiguration>(); } }
 
+        public IRepository<AppComponent> AppComponents { get { return GetStandardRepo<AppComponent>(); } }
+
+
         protected void ConfigureDbContext(IDbContext dbContext)
         {
             dbContext.Configuration.ProxyCreationEnabled = false;

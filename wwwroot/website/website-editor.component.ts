@@ -22,14 +22,24 @@ export class WebsiteEditorComponent {
         this.entities = state.websites;
         if (state.lastTriggeredByAction instanceof actions.RemoveWebsiteAction && this.entity && this.entity.id) {
             this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities });
+            if (Object.keys(this.entity).length === 0) { this.websiteActionCreator.currentWebsiteRemoved(); }
         }
+        
+        if (state.lastTriggeredByAction instanceof actions.AddOrUpdateWebsiteSuccessAction)
+            this.entity = {
+                routes: [],
+                components: []
+            };
     }
 
     ngOnInit = () => {
         if (this.$routeParams["id"]) {
             this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities });
         } else {
-            this.entity = {};
+            this.entity = {
+                routes: [],
+                components: []
+            };
         }
     }
 
@@ -39,16 +49,25 @@ export class WebsiteEditorComponent {
             params: {
                 data: this.entity
             }
-        }).then(() => { this.entity = {}; });
+        }).then(() => {
+            this.websiteActionCreator.addOrUpdateWebsiteSuccess({ entity: this.entity });
+        });
     } 
     
-    create = () => { this.entity = {} }
+    create = () => {
+        this.entity = {
+            routes: [],
+            components: []
+        };
+    }
 
     remove = () => this.websiteActionCreator.remove({ entity: this.entity });
          
-    id;
-	name;
-    entity;
+    entity: any = {
+        routes: [],
+        components: []
+    };
+
     entities;
     baseUrl;
 }

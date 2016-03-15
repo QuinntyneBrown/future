@@ -14,6 +14,8 @@ namespace Chloe.Server.Data.Contracts
         IRepository<Tag> Tags { get; }
         IRepository<Website> Websites { get; }
         IRepository<RouteConfiguration> RouteConfigurations { get; }
+        IRepository<AppComponent> AppComponents { get; }
+
         void SaveChanges();
     }
 }

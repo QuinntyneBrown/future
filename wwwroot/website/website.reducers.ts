@@ -25,9 +25,8 @@ export const allWebsitesReducer = (state, action) => {
 }
 
 export const setCurrentWebsiteReducer = (state, action) => {
-    if (action instanceof actions.SetCurrentWebsiteAction) {   
-        console.log("something");     
+    if (action instanceof actions.SetCurrentWebsiteAction)  
         state.currentWebsiteId = action.id;
-    }
+    
     return state;
 }

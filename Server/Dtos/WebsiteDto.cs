@@ -17,6 +17,7 @@ namespace Chloe.Server.Dtos
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public AppComponentDto App { get; set; }
     }
 
     public class WebsiteAddOrUpdateResponseDto : WebsiteDto

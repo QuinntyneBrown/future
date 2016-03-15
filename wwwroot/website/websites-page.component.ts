@@ -15,8 +15,10 @@ export class WebsitesPageComponent {
     constructor(private $location: angular.ILocationService, websiteActionCreator: actions.WebsiteActionCreator) { }
 
     storeOnChange = state => {        
-        if (state.lastTriggeredByAction instanceof actions.SetCurrentWebsiteAction) {
+        if (state.lastTriggeredByAction instanceof actions.SetCurrentWebsiteAction) 
             this.$location.path("/website/edit/" + state.lastTriggeredByAction.entity.id);
-        }
+        
+        if (state.lastTriggeredByAction instanceof actions.AddOrUpdateWebsiteSuccessAction || state.lastTriggeredByAction instanceof actions.CurrentWebsiteRemoved)
+            this.$location.path("/websites");        
     }
 }

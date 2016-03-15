@@ -7,7 +7,7 @@ namespace Chloe.Server.Services.Contracts
     {
         AppComponentAddOrUpdateResponseDto AddOrUpdate(AppComponentAddOrUpdateRequestDto request);
         ICollection<AppComponentDto> GetAll();
-        AppComponentDto GetBySlug(string slug);
         dynamic Remove(int id);
+        AppComponentDto GetById(int id);
     }
 }
