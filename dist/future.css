@@ -80,6 +80,7 @@ body {
 
 
 
+
 .tab-title {
     display:inline-block;
     font-weight:100;
@@ -97,7 +98,6 @@ body {
 .tabs-contentInActive {
     display:none;
 }
-
 
 
 

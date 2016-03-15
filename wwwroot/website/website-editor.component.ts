@@ -1,6 +1,7 @@
 import { CanActivate, Component } from "../core/component-decorators";
 import * as actions from "./website.actions";
 import { pluck } from "../core/pluck";
+import { Website } from "./website.model";
 
 @Component({
     route: "/website/edit/:id",
@@ -21,25 +22,19 @@ export class WebsiteEditorComponent {
     storeOnChange = state => {
         this.entities = state.websites;
         if (state.lastTriggeredByAction instanceof actions.RemoveWebsiteAction && this.entity && this.entity.id) {
-            this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities });
+            this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities }) as Website;
             if (Object.keys(this.entity).length === 0) { this.websiteActionCreator.currentWebsiteRemoved(); }
         }
         
         if (state.lastTriggeredByAction instanceof actions.AddOrUpdateWebsiteSuccessAction)
-            this.entity = {
-                routes: [],
-                components: []
-            };
+            this.entity = new Website();
     }
 
     ngOnInit = () => {
         if (this.$routeParams["id"]) {
-            this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities });
+            this.entity = pluck({ value: Number(this.$routeParams["id"]), items: this.entities }) as Website;
         } else {
-            this.entity = {
-                routes: [],
-                components: []
-            };
+            this.entity = new Website();
         }
     }
 
@@ -55,19 +50,13 @@ export class WebsiteEditorComponent {
     } 
     
     create = () => {
-        this.entity = {
-            routes: [],
-            components: []
-        };
+        this.entity = new Website();        
     }
 
     remove = () => this.websiteActionCreator.remove({ entity: this.entity });
          
-    entity: any = {
-        routes: [],
-        components: []
-    };
+    entity: Website = new Website();
 
-    entities;
+    entities: Array<Website>;
     baseUrl;
 }

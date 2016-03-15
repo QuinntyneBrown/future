@@ -776,6 +776,7 @@
     <TypeScriptCompile Include="wwwroot\website\website-list.component.ts" />
     <TypeScriptCompile Include="wwwroot\website\website.actions.ts" />
     <TypeScriptCompile Include="wwwroot\website\website.component.ts" />
+    <TypeScriptCompile Include="wwwroot\website\website.model.ts" />
     <TypeScriptCompile Include="wwwroot\website\website.module.ts" />
     <TypeScriptCompile Include="wwwroot\website\website.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\website\website.service.ts" />
