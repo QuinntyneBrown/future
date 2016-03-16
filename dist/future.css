@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Lato', sans-serif;
     color: #333;
@@ -10,7 +11,6 @@ body {
     padding-right:30px;
     padding-left:30px;
 }
-
 
 
 
@@ -84,13 +84,13 @@ body {
 .tab-title {
     display:inline-block;
     font-weight:100;
-    width:200px;
+    padding-right:20px;
+    padding-left:20px;
     height:75px;
     text-align:center;
     text-transform:uppercase;  
     font-size:1em;  
 }
-
 
 .tab-title.tabs-titleselected {
     font-weight:800;

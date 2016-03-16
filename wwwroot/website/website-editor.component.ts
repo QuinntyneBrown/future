@@ -26,8 +26,7 @@ export class WebsiteEditorComponent {
             if (Object.keys(this.entity).length === 0) { this.websiteActionCreator.currentWebsiteRemoved(); }
         }
         
-        if (state.lastTriggeredByAction instanceof actions.AddOrUpdateWebsiteSuccessAction)
-            this.entity = new Website();
+        if (state.lastTriggeredByAction instanceof actions.AddOrUpdateWebsiteSuccessAction) { this.create(); }
     }
 
     ngOnInit = () => {
@@ -49,9 +48,7 @@ export class WebsiteEditorComponent {
         });
     } 
     
-    create = () => {
-        this.entity = new Website();        
-    }
+    create = () =>  this.entity = new Website();
 
     remove = () => this.websiteActionCreator.remove({ entity: this.entity });
          

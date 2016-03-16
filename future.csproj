@@ -743,6 +743,7 @@
     <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration-list.component.ts" />
     <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration.actions.ts" />
     <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration.component.ts" />
+    <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration.model.ts" />
     <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration.module.ts" />
     <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\route-configuration\route-configuration.service.ts" />

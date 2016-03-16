@@ -13,6 +13,7 @@ require("./tabs/tabs.module");
 require("./login/login.module");
 require("./modal/modal.module");
 require("./registration/registration.module");
+require("./route-configuration/route-configuration.module");
 require("./website/website.module");
 
 require("./home-page/home-page.module");
@@ -32,6 +33,7 @@ var app: any = angular.module("future", [
     "app.login",
     "app.modal",
     "app.registration",
+    "app.routeConfiguration",
     "app.website",
 
     "app.adminPage",

@@ -4,6 +4,7 @@ import { RouteConfigurationActionCreator } from "./route-configuration.actions";
 @Component({
     route: "/routeConfiguration/list",
     templateUrl: "wwwroot/route-configuration/route-configuration-list.component.html",
+	styleUrls: ["wwwroot/route-configuration/route-configuration-list.component.css"],
     selector: "route-configuration-list",
     providers: ["$location","routeConfigurationActionCreator"]
 })
@@ -15,6 +16,6 @@ export class RouteConfigurationListComponent {
     constructor(private $location: angular.ILocationService,private routeConfigurationActionCreator: RouteConfigurationActionCreator) { }
     storeOnChange = state =>  this.entities = state.routeConfigurations;   
     entities;
-    remove = routeConfiguration => this.routeConfigurationActionCreator.remove({ entity: routeConfiguration });
-    edit = routeConfiguration => this.routeConfigurationActionCreator.edit({ entity: routeConfiguration });    
+    remove = entity => this.routeConfigurationActionCreator.remove({ entity: entity });
+    edit = entity => this.routeConfigurationActionCreator.edit({ entity: entity });    
 }

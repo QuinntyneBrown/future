@@ -3,6 +3,7 @@ import { RouteConfigurationActionCreator } from "./route-configuration.actions";
 
 @Component({
     templateUrl: "wwwroot/route-configuration/route-configuration.component.html",
+	styleUrls: ["wwwroot/route-configuration/route-configuration.component.css"],
     selector: "route-configuration",
     providers: ["routeConfigurationActionCreator"]
 })
