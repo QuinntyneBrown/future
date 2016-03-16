@@ -4,12 +4,14 @@ import * as actions from "./login.actions";
 @Component({
     templateUrl: "wwwroot/login/login-page.component.html",
     selector: "login-page",
-    providers: ["$location"]
+    providers: ["loginRedirect"]
 })
 export class LoginPageComponent {
-    constructor(private $location: angular.ILocationService) { }
+    constructor(private loginRedirect) { }
 
     storeOnChange = state => {
-        if (state.lastTriggeredByAction instanceof actions.LoginSuccessAction) { this.$location.path("/websites"); }
+        if (state.lastTriggeredByAction instanceof actions.LoginSuccessAction) {            
+            this.loginRedirect.redirectPreLogin()
+        }
     }
 }

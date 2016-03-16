@@ -4,6 +4,7 @@ import { TagActionCreator } from "./tag.actions";
 @Component({
     route: "/tag/list",
     templateUrl: "wwwroot/tag/tag-list.component.html",
+	styleUrls: ["wwwroot/tag/tag-list.component.css"],
     selector: "tag-list",
     providers: ["$location","tagActionCreator"]
 })
@@ -15,6 +16,6 @@ export class TagListComponent {
     constructor(private $location: angular.ILocationService,private tagActionCreator: TagActionCreator) { }
     storeOnChange = state =>  this.entities = state.tags;   
     entities;
-    remove = tag => this.tagActionCreator.remove({ entity: tag });
-    edit = tag => this.tagActionCreator.edit({ entity: tag });    
+    remove = entity => this.tagActionCreator.remove({ entity: entity });
+    edit = entity => this.tagActionCreator.edit({ entity: entity });    
 }

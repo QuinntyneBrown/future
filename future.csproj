@@ -768,6 +768,7 @@
     <TypeScriptCompile Include="wwwroot\tag\tag-list.component.ts" />
     <TypeScriptCompile Include="wwwroot\tag\tag.actions.ts" />
     <TypeScriptCompile Include="wwwroot\tag\tag.component.ts" />
+    <TypeScriptCompile Include="wwwroot\tag\tag.model.ts" />
     <TypeScriptCompile Include="wwwroot\tag\tag.module.ts" />
     <TypeScriptCompile Include="wwwroot\tag\tag.reducers.ts" />
     <TypeScriptCompile Include="wwwroot\tag\tag.service.ts" />

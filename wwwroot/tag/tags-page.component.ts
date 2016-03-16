@@ -1,14 +1,21 @@
 import { CanActivate, Component } from "../core/component-decorators";
-import { TagActionCreator } from "./tag.actions";
+import * as actions from "./tag.actions";
 
 @Component({
     route:"/tags",
     templateUrl: "wwwroot/tag/tags-page.component.html",
     selector: "tags-page",
-    providers: ["tagActionCreator"]
+    providers: ["$location","tagActionCreator"]
 })
 @CanActivate([
     "tagActionCreator", "invokeAsync",
-    (tagActionCreator: TagActionCreator, invokeAsync) => invokeAsync(tagActionCreator.all)
+    (tagActionCreator: actions.TagActionCreator, invokeAsync) => invokeAsync(tagActionCreator.all)
 ])
-export class TagsPageComponent { }
+export class TagsPageComponent { 
+    constructor(private $location: angular.ILocationService, tagActionCreator: actions.TagActionCreator) { }
+    storeOnChange = state => {        
+        if (state.lastTriggeredByAction instanceof actions.SetCurrentTagAction) {
+            this.$location.path("/tag/edit/" + state.lastTriggeredByAction.entity.id);
+        }
+    }
+}

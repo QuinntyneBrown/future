@@ -29,9 +29,7 @@ namespace Chloe.Server.Controllers
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id) { return Ok(this.service.Remove(id)); }
-
-
+        
         protected readonly IComponentService service;
-
     }
 }

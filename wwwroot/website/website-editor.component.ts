@@ -56,7 +56,5 @@ export class WebsiteEditorComponent {
     remove = () => this.websiteActionCreator.remove({ entity: this.entity });
          
     entity: Website = new Website();
-
     entities: Array<Website>;
-    baseUrl;
 }

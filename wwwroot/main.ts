@@ -63,3 +63,7 @@ app.config(["apiEndpointProvider", (apiEndpointProvider) => {
     apiEndpointProvider.configure("/api");
 }]);
 
+app.config(["loginRedirectProvider", (loginRedirectProvider) => {
+    loginRedirectProvider.setDefaultUrl("/websites");
+}]);
+
